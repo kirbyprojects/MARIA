@@ -64,6 +64,7 @@
     <Compile Include="MARIAFile_AudioProcessing.cs" />
     <Compile Include="MARIAFile_ImageProcessing.cs" />
     <Compile Include="MARIAFile_TextProcessing.cs" />
+    <Compile Include="MARIARuntime.cs" />
     <Compile Include="MARIASqlServerDatabase_CustomAlgorithms.cs" />
     <Compile Include="MARIASqlServerDatabase_QueryOutput.cs" />
     <Compile Include="MARIASqlServerDatabase_StoredProcedureManagement.cs" />
