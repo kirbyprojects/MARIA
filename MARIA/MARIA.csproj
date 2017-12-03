@@ -64,12 +64,16 @@
     <Compile Include="MARIAFile_AudioProcessing.cs" />
     <Compile Include="MARIAFile_ImageProcessing.cs" />
     <Compile Include="MARIAFile_TextProcessing.cs" />
+    <Compile Include="MARIASqlServerDatabase_CustomAlgorithms.cs" />
+    <Compile Include="MARIASqlServerDatabase_QueryOutput.cs" />
     <Compile Include="MARIASqlServerDatabase_StoredProcedureManagement.cs" />
+    <Compile Include="MARIASqlServerQueryData.cs" />
+    <Compile Include="MARIASqlServerQueryResultSet.cs" />
     <Compile Include="MARIATask.cs" />
     <Compile Include="MARIATaskManager.cs" />
     <Compile Include="MARIAWebRequest.cs" />
     <Compile Include="MARIASqlServerDatabase.cs" />
-    <Compile Include="MARIASqlServerDatabase_Queries.cs" />
+    <Compile Include="MARIASqlServerDatabase_QueryExecution.cs" />
     <Compile Include="MARIAWebRequest_Get.cs" />
     <Compile Include="MARIAWebRequest_Parser.cs" />
     <Compile Include="MARIAWebRequest_Post.cs" />

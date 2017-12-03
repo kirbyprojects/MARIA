@@ -15,6 +15,7 @@ namespace MARIA
             string StartupMode = "console";
             string UserInput;
             MARIAFile ActiveFile = null;
+            MARIASqlServerDatabase ActiveDatabase = null;
             while (ProgramRunning)
             {
                 try
@@ -47,7 +48,7 @@ namespace MARIA
                                 }
                                 else
                                 {
-
+                                    Console.WriteLine("{0} {1} is not a recognized command", PrimaryCommand, SecondaryCommand);
                                 }
                             }
                             else
@@ -57,6 +58,52 @@ namespace MARIA
                                 FilePath = Console.ReadLine();
                                 ActiveFile = new MARIAFile(FilePath);
                             }
+                        }
+                        else if (PrimaryCommand == "database")
+                        {
+                            if(ActiveDatabase != null)
+                            {
+                                string SecondaryCommand = InstructionSet.Split(' ')[0];
+                                string DatabaseCommand = InstructionSet.Remove(0, SecondaryCommand.Length).Trim();
+                                if(SecondaryCommand == "open")
+                                {
+                                    string DatabaseCredentials;
+                                    Console.Write("Set Active Database: ");
+                                    DatabaseCredentials = Console.ReadLine();
+                                    ActiveDatabase = new MARIASqlServerDatabase(DatabaseCredentials);
+                                }
+                                else if (SecondaryCommand == "readerquery")
+                                {
+                                    StatusObject SO_ReaderQuery = ActiveDatabase.ExecuteReaderQuery(DatabaseCommand);
+                                    if(SO_ReaderQuery.Status != StatusCode.FAILURE)
+                                    {
+                                        ActiveDatabase.DisplayResultSet(SO_ReaderQuery.UDDynamic);
+                                    }
+                                }
+                                else if (SecondaryCommand == "executedqueryhistory")
+                                {
+                                    StatusObject SO_ExecutedQueryHistory = ActiveDatabase.GetAllExecutedQueries();
+                                    if(SO_ExecutedQueryHistory.Status != StatusCode.FAILURE)
+                                    {
+                                        ActiveDatabase.DisplayResultSet(SO_ExecutedQueryHistory.UDDynamic);
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("{0} {1} is not a recognized command", PrimaryCommand, SecondaryCommand);
+                                }
+                            }
+                            else
+                            {
+                                string DatabaseCredentials;
+                                Console.Write("Set Active Database: ");
+                                DatabaseCredentials = Console.ReadLine();
+                                ActiveDatabase = new MARIASqlServerDatabase(DatabaseCredentials);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("{0} is not a recognized command", PrimaryCommand);
                         }
                     }
                     else
@@ -69,6 +116,7 @@ namespace MARIA
                 {
                     ProgramRunning = false;
                     UserInput = null;
+                    Console.WriteLine(e.ToString());
                 }
             }
         }
