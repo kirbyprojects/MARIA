@@ -1,0 +1,97 @@
+
+<script>
+var request=new Object();
+request.webroot="/claims/";
+request.mtoken="";
+request.approot="/";
+request.apptmz=8.0;
+</script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html><head>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<script src="/services/scripts/JQuery/jquery-1.9.1.min10001-mvs.js"></script> 
+<script src="/services/scripts/unencoded/SVCjsmob.js"></script>
+
+<title>Merimen e-Claims</title>
+
+
+
+	<link rel="icon" type="image/x-icon" href="/claims/merimen-icon.ico" />
+	<link rel="shortcut icon" href="/claims/merimen-icon.ico" type="image/x-icon" />
+
+	<script>
+		
+		var sysdt=new Date(2017,12-1,2,11,36,9);
+		
+	</script>
+<link href="/services/scripts/SVCcss10016-mvs.css" rel=stylesheet type=text/css></link> <script src="/services/scripts/unencoded/SVCtab10008-mvs.js"></script> <script src="/services/scripts/unencoded/SVCmain10038-mvs.js"></script> <script src="/services/scripts/SVCappvars10054-mvs.js"></script> <script src="/claims/MSupport/unencoded/MTRappvars10059-mvs.js"></script> <script src="/services/scripts/unencoded/toolbar10012-mvs.js"></script> <script src="/claims/MSupport/unencoded/meri10018-mvs.js"></script> 
+</head>
+
+<body class="clsBody ">
+<div class=persistUserData ID=MRMUSERDATA></div> 
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" id=MRMmaintable>
+	<tr><td valign="top"><div class="clsDocBody "> 
+	<script>
+		
+		drawToolbar("merimentopleft.gif"); 
+		drawToolbarComplete();
+	</script>
+	
+<script>
+	
+	try	{ JSVCDoBackWarning() } catch(e) {};
+</script>
+</div></td></tr> <tr><td valign="top" width="100%" height="100%"><br><div class=clsDocBody style="min-height:100%;height:100%"> 
+	<div class="hidden-xs"><br></div><br>	
+	<table align=center width=80%><tr><td> 
+	<h3>Session Timeout / User Not Logged On</h3>
+	You need to be logged on to Merimen e-Claims to access that page. 
+				<p>Possible reasons for failure:<br>
+				<li>You have been idle for too long, and you were logged out automatically by Merimen e-Claims.</li>
+				<li>You are accessing a page directly without logging in.</li>
+				<li>You are accessing a previous page after logging out.</li>
+				<li>There was a suspected intrusion into your session and you have been logged out.</li></p>
+				<p>For security reasons, the data you have submitted from the previous screen, if any, would be unusable. You will have to re-enter and re-submit the data.
+				Please remember to save the data within the logged-on period to prevent this from happening again.</p>
+				<p>Please login again before proceeding.</p>
+			
+	<script>
+		var owin=window.parent;
+		if(owin!=null && owin.FormFail!=null)
+		{
+			var errtxt;
+			
+				errtxt="An error occurred during the form submission.\nPlease contact us to inform them of the circumstances.\n\nWe apologize for all inconveniences caused.";
+			
+			owin.FormFail(window,errtxt);
+		}
+	</script>
+	<br><br> <script src="/services/scripts/unencoded/SVClogin10016-mvs.js"></script> 
+				<script>
+				var retryid = 0;
+				var userid = '';
+				
+				JSVCDoLogin("MTIvMDIvMjAxNyAxMTozNjowOTNFMTcxQTRENTRBQkJGRkY2RDhBNjdEM0JFNzVBOTkw",5*60*1000,"fusebox=APPsec&fuseaction=act_login");
+				</script>
+			
+	</td></tr>
+	</table>
+	
+	<br><br>
+	
+		</div></td>
+	</tr>
+	
+	<tr>
+	  <td>
+			<script>MTOOLFooter();</script>
+	  </td>
+	</tr>
+	
+	</table>
+	
+	<script>
+	if(MTOOLCompleteMenubar)MTOOLCompleteMenubar();
+	</script>
+	</body></html> 

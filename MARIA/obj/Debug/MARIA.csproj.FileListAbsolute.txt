@@ -1,0 +1,7 @@
+D:\GithubProjects\MARIA\MARIA\bin\Debug\MARIA.exe.config
+D:\GithubProjects\MARIA\MARIA\bin\Debug\MARIA.exe
+D:\GithubProjects\MARIA\MARIA\bin\Debug\MARIA.pdb
+D:\GithubProjects\MARIA\MARIA\obj\Debug\MARIA.csprojResolveAssemblyReference.cache
+D:\GithubProjects\MARIA\MARIA\obj\Debug\MARIA.csproj.CoreCompileInputs.cache
+D:\GithubProjects\MARIA\MARIA\obj\Debug\MARIA.exe
+D:\GithubProjects\MARIA\MARIA\obj\Debug\MARIA.pdb
