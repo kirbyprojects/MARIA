@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Mime;
 using System.Net.Http;
 using System.IO;
+using Newtonsoft.Json;
 namespace MARIA
 {
     public partial class MARIAWebRequest
@@ -22,6 +23,10 @@ namespace MARIA
             this.QueryStringParameters = new Dictionary<string, string>();
             this.PostParameters = new Dictionary<string, string>();
             this.PostObjects = new Dictionary<string, object>();
+        }
+        public MARIAWebRequest(MARIAFile InputFile)
+        {
+            Console.WriteLine("hello");
         }
         public string GetQueryString()
         {
