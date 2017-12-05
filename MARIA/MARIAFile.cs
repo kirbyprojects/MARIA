@@ -17,7 +17,6 @@ namespace MARIA
         public string FileType { get; private set; }
         public bool IsValid { get; private set; }
         public bool IsMARIAFile { get; private set; }
-        public string MARIAFileType { get; private set; }
         public MARIAFile(string FilePath)
         {
             this.FilePath = FilePath;
@@ -31,9 +30,9 @@ namespace MARIA
                 this.IsValid = false;
                 Console.WriteLine("File Does not Exist");
             }
-            if(FileType == ".mwrjson" || FileType == ".mwrxml")
+            if(FileType==".mnf")
             {
-                this.MARIAFileType = "webrequestfile";
+                this.IsMARIAFile = true;
             }
         }
     }

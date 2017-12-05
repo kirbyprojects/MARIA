@@ -16,9 +16,8 @@ namespace MARIA
             string UserInput = "";
             MARIAFile ActiveFile = new MARIAFile(args.ElementAtOrDefault(0));
             MARIASqlServerDatabase ActiveDatabase = null;
-            if (ActiveFile.MARIAFileType == "webrequestfile")
+            if (ActiveFile.IsValid && ActiveFile.IsMARIAFile)
             {
-                UserInput = "webrequest fromfile";
                 StartupMode = "file";
             }
             /*Set UserInput based on File Type*/
@@ -26,6 +25,7 @@ namespace MARIA
             {
                 try
                 {
+                    ActiveFile.ParseNativeFile();
                     Console.ReadKey();
                 }
                 catch(Exception e)
@@ -127,10 +127,9 @@ namespace MARIA
                                 {
                                     if (ActiveFile != null)
                                     {
-                                        if (ActiveFile.IsValid && ActiveFile.IsMARIAFile && ActiveFile.MARIAFileType == "webrequestfile")
+                                        if (ActiveFile.IsValid && ActiveFile.IsMARIAFile)
                                         {
                                             Console.WriteLine("hello");
-                                            MARIAWebRequest WebRequest = new MARIAWebRequest(ActiveFile);
                                         }
                                     }
                                     else

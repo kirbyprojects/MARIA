@@ -24,10 +24,6 @@ namespace MARIA
             this.PostParameters = new Dictionary<string, string>();
             this.PostObjects = new Dictionary<string, object>();
         }
-        public MARIAWebRequest(MARIAFile InputFile)
-        {
-            Console.WriteLine("hello");
-        }
         public string GetQueryString()
         {
             return new FormUrlEncodedContent(this.QueryStringParameters).ReadAsStringAsync().Result;
