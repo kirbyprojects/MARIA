@@ -142,6 +142,11 @@ namespace MARIA
                                     Console.WriteLine("{0} {1} is not a recognized command", PrimaryCommand, SecondaryCommand);
                                 }
                             }
+                            else if (PrimaryCommand == "cryptography")
+                            {
+                                MARIACryptography CryptoTools = new MARIACryptography();
+                                CryptoTools.GetPermutations();
+                            }
                             else
                             {
                                 Console.WriteLine("{0} is not a recognized command", PrimaryCommand);

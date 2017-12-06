@@ -60,5 +60,38 @@ namespace MARIA
             }
             return HashedString;
         }
+        public StatusObject GetPermutations()
+        {
+            StatusObject SO = new StatusObject();
+            DateTime Start = DateTime.Now;
+            try
+            {
+                string Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                int[] IntegerArray = new int[10] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+                int ArrayLength = IntegerArray.Length;
+                int FinalIndex = ArrayLength - 1;
+                DateTime StartTime = DateTime.Now;
+                while (true)
+                {
+                    IntegerArray[FinalIndex]++;
+                    for(int i = FinalIndex; i >= 0; i--)
+                    {
+                        if(IntegerArray[i] == Characters.Length)
+                        {
+                            IntegerArray[i - 1] = IntegerArray[i - 1] + 1;
+                            IntegerArray[i] = 0;
+                        }
+                    }
+                    Console.WriteLine(String.Join(",", IntegerArray.Select(x => x < 0 ? ' ' : Characters.ToCharArray()[x])));
+                }
+            }
+            catch(Exception e)
+            {
+                SO = new StatusObject(e, "CRYPTOGRAPHY_GETPERMUTATIONS");
+            }
+            DateTime End = DateTime.Now;
+            Console.WriteLine("[Start: {0}] [End: {1}]", Start, End);
+            return SO;
+        }
     }
 }

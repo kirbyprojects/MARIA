@@ -108,3 +108,16 @@ D:\GithubProjects\MARIA\MARIA\bin\Debug\MySql.Data.xml
 D:\GithubProjects\MARIA\MARIA\bin\Debug\Newtonsoft.Json.xml
 D:\GithubProjects\MARIA\MARIA\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\GithubProjects\MARIA\MARIA\obj\Debug\MARIA.csproj.MARIA.exe.config
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\MARIA.exe.config
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\MARIA.exe
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\MARIA.pdb
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\MySql.Data.dll
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\Newtonsoft.Json.dll
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\MySql.Data.xml
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\Newtonsoft.Json.xml
+C:\GitHubProjects\MARIA\MARIA\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\GitHubProjects\MARIA\MARIA\obj\Debug\MARIA.csprojResolveAssemblyReference.cache
+C:\GitHubProjects\MARIA\MARIA\obj\Debug\MARIA.csproj.CoreCompileInputs.cache
+C:\GitHubProjects\MARIA\MARIA\obj\Debug\MARIA.exe
+C:\GitHubProjects\MARIA\MARIA\obj\Debug\MARIA.pdb
