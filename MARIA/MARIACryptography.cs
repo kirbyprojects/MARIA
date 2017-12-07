@@ -15,9 +15,14 @@ namespace MARIA
     }
     public class MARIACryptography
     {
+        private string CharacterSet { get; set; }
         public MARIACryptography()
         {
 
+        }
+        public MARIACryptography(string CharacterSet)
+        {
+            this.CharacterSet = CharacterSet;
         }
         public string GetHash(HashAlgorithm HashType, string Input)
         {
@@ -91,6 +96,77 @@ namespace MARIA
             }
             DateTime End = DateTime.Now;
             Console.WriteLine("[Start: {0}] [End: {1}]", Start, End);
+            return SO;
+        }
+        public StatusObject GetPermutations(string StartSequence, string EndSequence)
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+                /*EndSequence must be longer than or equal to StartSequence*/
+                bool SequenceValidated = true;
+                char[] StartSequenceCharacters = StartSequence.ToCharArray();
+                char[] EndSequenceCharacters = EndSequence.ToCharArray();
+                string ErrorMessage = "";
+                for (int i = 0; i < StartSequenceCharacters.Length; i++)
+                {
+                    if(this.CharacterSet.IndexOf(StartSequenceCharacters[i]) == -1)
+                    {
+                        SequenceValidated = false;
+                        break;
+                    }
+                }
+                for(int i = 0; i < EndSequenceCharacters.Length; i++)
+                {
+                    if (this.CharacterSet.IndexOf(EndSequenceCharacters[i]) == -1)
+                    {
+                        SequenceValidated = false;
+                        break;
+                    }
+                }
+                if (EndSequence.Length < StartSequence.Length)
+                {
+                    SequenceValidated = false;
+                }
+                else if(EndSequence.Length == StartSequence.Length)
+                {
+                    /*EndSequence cannot be alphabetically greater than StartSequence*/
+                    
+                    for(int i = 0; i < StartSequenceCharacters.Length; i++)
+                    {
+                        if (this.CharacterSet.IndexOf(StartSequenceCharacters[i]) > this.CharacterSet.IndexOf(EndSequenceCharacters[i]))
+                        {
+                            SequenceValidated = false;
+                            break;
+                        }
+                    }
+                }
+                if (SequenceValidated)
+                {
+                    // EndSequence is always Greater or Equal to Start Sequence
+                    int[] PermutationArray = new int[EndSequence.Length];
+                    for (int i = PermutationArray.Length - 1; i >= 0; i--)
+                    {
+                        if(i - StartSequenceCharacters.Length < 0)
+                        {
+                            PermutationArray[i] = -1;
+                        }
+                        else
+                        {
+                            PermutationArray[i] = StartSequenceCharacters[i - StartSequenceCharacters.Length];
+                        }
+                        Console.WriteLine(String.Join(PermutationArray.Select(x=> x < 0? ' ': this.CharacterSet.to)))
+                    }
+                }
+                else
+                {
+                    SO = new StatusObject(new Exception(ErrorMessage), "CRYPTOGRAPHY_GETPERMUTATIONS_INVALIDINPUT");
+                }
+            }
+            catch(Exception e)
+            {
+                SO = new StatusObject(e, "CRYPTOGRAPHY_GETPERMUTATIONS");
+            }
             return SO;
         }
     }

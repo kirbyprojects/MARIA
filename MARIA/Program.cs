@@ -147,6 +147,11 @@ namespace MARIA
                                 MARIACryptography CryptoTools = new MARIACryptography();
                                 CryptoTools.GetPermutations();
                             }
+                            else if (PrimaryCommand == "crypto2")
+                            {
+                                MARIACryptography CryptoTools = new MARIACryptography("ABCDEFGHI");
+                                CryptoTools.GetPermutations("CCC", "AAA");
+                            }
                             else
                             {
                                 Console.WriteLine("{0} is not a recognized command", PrimaryCommand);
