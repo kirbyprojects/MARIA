@@ -145,17 +145,47 @@ namespace MARIA
                 {
                     // EndSequence is always Greater or Equal to Start Sequence
                     int[] PermutationArray = new int[EndSequence.Length];
+                    int LengthDifference = EndSequence.Length - StartSequence.Length;
+                    int FinalIndex = EndSequence.Length - 1;
                     for (int i = PermutationArray.Length - 1; i >= 0; i--)
                     {
-                        if(i - StartSequenceCharacters.Length < 0)
+                        if(StartSequence.Length == EndSequence.Length)
                         {
-                            PermutationArray[i] = -1;
+                            PermutationArray[i] = this.CharacterSet.IndexOf(StartSequence[i]);
                         }
-                        else
+                        else if(EndSequence.Length > StartSequence.Length)
                         {
-                            PermutationArray[i] = StartSequenceCharacters[i - StartSequenceCharacters.Length];
+                            if(i - LengthDifference >= 0)
+                            {
+                                PermutationArray[i] = this.CharacterSet.IndexOf(StartSequence[i - LengthDifference]);
+                            }
+                            else
+                            {
+                                PermutationArray[i] = -1;
+                            }
                         }
-                        Console.WriteLine(String.Join(PermutationArray.Select(x=> x < 0? ' ': this.CharacterSet.to)))
+                    }
+                    Console.WriteLine(String.Join("", PermutationArray.Select(x => x < 0 ? ' ' : this.CharacterSet[x])));
+                    while (true)
+                    {
+                        PermutationArray[FinalIndex]++;
+                        for (int i = FinalIndex; i >= 0; i--)
+                        {
+                            if (PermutationArray[i] == this.CharacterSet.Length)
+                            {
+                                if (i - 1 >= 0)
+                                {
+                                    PermutationArray[i - 1] = PermutationArray[i - 1] + 1;
+                                    PermutationArray[i] = 0;
+                                }
+                            }
+                        }
+                        string CurrentString = String.Join("", PermutationArray.Select(x => x < 0 ? ' ' : this.CharacterSet.ElementAtOrDefault(x)));
+                        Console.WriteLine(CurrentString);
+                        if (CurrentString == EndSequence)
+                        {
+                            break;
+                        }
                     }
                 }
                 else
