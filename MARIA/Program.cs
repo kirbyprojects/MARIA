@@ -144,7 +144,7 @@ namespace MARIA
                             }
                             else if (PrimaryCommand == "cryptography")
                             {
-                                MARIACryptography CryptoTools = new MARIACryptography();
+                                MARIACryptography CryptoTools = new MARIACryptography("abcdefghijklmnopqrstuvwxyz");
                                 CryptoTools.GetPermutations();
                             }
                             else if (PrimaryCommand == "crypto2")

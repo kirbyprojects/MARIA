@@ -71,23 +71,22 @@ namespace MARIA
             DateTime Start = DateTime.Now;
             try
             {
-                string Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-                int[] IntegerArray = new int[10] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
-                int ArrayLength = IntegerArray.Length;
+                int[] PermutationArray = new int[10] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+                int ArrayLength = PermutationArray.Length;
                 int FinalIndex = ArrayLength - 1;
                 DateTime StartTime = DateTime.Now;
                 while (true)
                 {
-                    IntegerArray[FinalIndex]++;
+                    PermutationArray[FinalIndex]++;
                     for(int i = FinalIndex; i >= 0; i--)
                     {
-                        if(IntegerArray[i] == Characters.Length)
+                        if(PermutationArray[i] == this.CharacterSet.Length)
                         {
-                            IntegerArray[i - 1] = IntegerArray[i - 1] + 1;
-                            IntegerArray[i] = 0;
+                            PermutationArray[i - 1] = PermutationArray[i - 1] + 1;
+                            PermutationArray[i] = 0;
                         }
                     }
-                    Console.WriteLine(String.Join(",", IntegerArray.Select(x => x < 0 ? ' ' : Characters.ToCharArray()[x])));
+                    Console.WriteLine(String.Join(",", PermutationArray.Select(x => x < 0 ? ' ' : this.CharacterSet[x])));
                 }
             }
             catch(Exception e)
