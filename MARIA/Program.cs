@@ -152,6 +152,14 @@ namespace MARIA
                                 MARIACryptography CryptoTools = new MARIACryptography("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
                                 CryptoTools.GetPermutations("A", "Z");
                             }
+                            else if (PrimaryCommand == "crypto3")
+                            {
+                                Console.BufferHeight = 30000;
+                                string StartSequence = InstructionSet.Split(' ').ElementAtOrDefault(0);
+                                int Iterations = Convert.ToInt32(InstructionSet.Split(' ').ElementAtOrDefault(1));
+                                MARIACryptography CryptoTools = new MARIACryptography("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                                CryptoTools.GetEndSequence(StartSequence, Iterations);
+                            }
                             else
                             {
                                 Console.WriteLine("{0} is not a recognized command", PrimaryCommand);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Threading;
 namespace MARIA
 {
     public enum HashAlgorithm
@@ -131,14 +132,15 @@ namespace MARIA
                 {
                     /*EndSequence cannot be alphabetically greater than StartSequence*/
                     
-                    for(int i = 0; i < StartSequenceCharacters.Length; i++)
+                    /*for(int i = 0; i < StartSequenceCharacters.Length; i++)
                     {
                         if (this.CharacterSet.IndexOf(StartSequenceCharacters[i]) > this.CharacterSet.IndexOf(EndSequenceCharacters[i]))
                         {
                             SequenceValidated = false;
+                            ErrorMessage = "Alphabetical";
                             break;
                         }
-                    }
+                    }*/
                 }
                 if (SequenceValidated)
                 {
@@ -195,6 +197,43 @@ namespace MARIA
             catch(Exception e)
             {
                 SO = new StatusObject(e, "CRYPTOGRAPHY_GETPERMUTATIONS");
+            }
+            return SO;
+        }
+        public StatusObject GetEndSequence(string StartSequence, int Iterations)
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+                List<int> StartString = StartSequence.Select(x => this.CharacterSet.IndexOf(x)).ToList();
+                List<int> FinalPosition = new List<int>();
+                List<int> FinalString = new List<int>();
+                for (int i = Iterations; i >= 0; i = i / this.CharacterSet.Length)
+                {
+                    FinalPosition.Add(i);
+                    if (i == 0)
+                    {
+                        FinalPosition.RemoveAt(FinalPosition.Count - 1);
+                        break;
+                    }
+                }
+                for(int i = 0; i < FinalPosition.Count; i++)
+                {
+                    Console.WriteLine(FinalPosition[i]);
+                    if(FinalPosition.Count > StartString.Count  && i > (StartString.Count - 1))
+                    {
+                        StartString.Add(FinalPosition[i]);
+                    }
+                    else
+                    {
+                        StartString[i] = (StartString[i] + FinalPosition[i]) % this.CharacterSet.Length;
+                    }
+                }
+                Console.WriteLine(String.Join(",", StartString.Select(x => x.ToString()).Reverse()));
+            }
+            catch (Exception e)
+            {
+                SO = new StatusObject(e, "CRYPTOGRAPHY_GETENDSEQUENCE");
             }
             return SO;
         }
