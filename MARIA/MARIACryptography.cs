@@ -205,31 +205,7 @@ namespace MARIA
             StatusObject SO = new StatusObject();
             try
             {
-                List<int> StartString = StartSequence.Select(x => this.CharacterSet.IndexOf(x)).ToList();
-                List<int> FinalPosition = new List<int>();
-                List<int> FinalString = new List<int>();
-                for (int i = Iterations; i >= 0; i = i / this.CharacterSet.Length)
-                {
-                    FinalPosition.Add(i);
-                    if (i == 0)
-                    {
-                        FinalPosition.RemoveAt(FinalPosition.Count - 1);
-                        break;
-                    }
-                }
-                for(int i = 0; i < FinalPosition.Count; i++)
-                {
-                    Console.WriteLine(FinalPosition[i]);
-                    if(FinalPosition.Count > StartString.Count  && i > (StartString.Count - 1))
-                    {
-                        StartString.Add(FinalPosition[i]);
-                    }
-                    else
-                    {
-                        StartString[i] = (StartString[i] + FinalPosition[i]) % this.CharacterSet.Length;
-                    }
-                }
-                Console.WriteLine(String.Join(",", StartString.Select(x => x.ToString()).Reverse()));
+                
             }
             catch (Exception e)
             {
