@@ -205,7 +205,27 @@ namespace MARIA
             StatusObject SO = new StatusObject();
             try
             {
-                
+                List<int> Start = StartSequence.Select(x => this.CharacterSet.IndexOf(x)).Reverse().ToList();
+                Start[0] = Start[0] + Iterations;
+                int MaxIndex = Start.Count - 1;
+                for(int i = 0; i < Start.Count; i++)
+                {
+                    if(Start[i] >= this.CharacterSet.Length)
+                    {
+                        Console.WriteLine(Start[i] % this.CharacterSet.Length);
+                        if(Iterations >= this.CharacterSet.Length)
+                        {
+                            if(i > MaxIndex)
+                            {
+                                
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine(Start[i]);
+                    }
+                }
             }
             catch (Exception e)
             {

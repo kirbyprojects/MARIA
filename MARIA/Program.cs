@@ -149,8 +149,9 @@ namespace MARIA
                             }
                             else if (PrimaryCommand == "crypto2")
                             {
+                                Console.BufferHeight = 30000;
                                 MARIACryptography CryptoTools = new MARIACryptography("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-                                CryptoTools.GetPermutations("A", "Z");
+                                CryptoTools.GetPermutations("A", "AAAA");
                             }
                             else if (PrimaryCommand == "crypto3")
                             {
@@ -159,6 +160,17 @@ namespace MARIA
                                 int Iterations = Convert.ToInt32(InstructionSet.Split(' ').ElementAtOrDefault(1));
                                 MARIACryptography CryptoTools = new MARIACryptography("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
                                 CryptoTools.GetEndSequence(StartSequence, Iterations);
+                            }
+                            else if (PrimaryCommand == "tasktest")
+                            {
+                                MARIATaskManager TaskManager = new MARIATaskManager();
+                                MARIATask NewTask = new MARIATask(TaskManager.UserDefinedTask1, "hello");
+                                MARIATask NewTask2 = new MARIATask(TaskManager.UserDefinedTask1, "world");
+                                MARIATask NewTask3 = new MARIATask(TaskManager.UserDefinedTask2);
+                                TaskManager.AddTask("hello", NewTask);
+                                TaskManager.AddTask("world", NewTask2);
+                                TaskManager.AddTask("hiii", NewTask3);
+                                TaskManager.StartTask();
                             }
                             else
                             {
