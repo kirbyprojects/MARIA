@@ -172,6 +172,10 @@ namespace MARIA
                                 TaskManager.AddTask("hiii", NewTask3);
                                 TaskManager.StartTask();
                             }
+                            else if (PrimaryCommand == "extdll")
+                            {
+                                
+                            }
                             else
                             {
                                 Console.WriteLine("{0} is not a recognized command", PrimaryCommand);
