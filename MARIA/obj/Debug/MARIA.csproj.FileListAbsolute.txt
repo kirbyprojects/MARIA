@@ -218,8 +218,3 @@ C:\GitHubProjects\MARIA\MARIA\bin\Debug\System.Xml.XmlSerializer.dll
 C:\GitHubProjects\MARIA\MARIA\bin\Debug\System.Xml.XPath.dll
 C:\GitHubProjects\MARIA\MARIA\bin\Debug\System.Xml.XPath.XDocument.dll
 C:\GitHubProjects\MARIA\MARIA\obj\Debug\MARIA.exe.config
-C:\GitHubProjects\MARIA\MARIA\bin\Debug\MARIA.Entities.dll
-C:\GitHubProjects\MARIA\MARIA\bin\Debug\EntityFramework.dll
-C:\GitHubProjects\MARIA\MARIA\bin\Debug\MARIA.Entities.pdb
-C:\GitHubProjects\MARIA\MARIA\bin\Debug\MARIA.Entities.dll.config
-C:\GitHubProjects\MARIA\MARIA\bin\Debug\EntityFramework.xml

@@ -18,9 +18,6 @@ namespace MARIA
             {
                 HttpWebRequest TargetSite = (HttpWebRequest)WebRequest.Create(this.URL);
                 HttpWebResponse TargetSiteResponse = (HttpWebResponse)TargetSite.GetResponse();
-                Stream TargetSiteResponseStream = TargetSiteResponse.GetResponseStream();
-                StreamReader TargetSiteResponseStreamReader = new StreamReader(TargetSiteResponseStream);
-                Console.WriteLine(TargetSiteResponseStreamReader.ReadToEnd());
             }
             catch (Exception e)
             {

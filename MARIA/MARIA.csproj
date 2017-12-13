@@ -89,6 +89,7 @@
     <Compile Include="MARIAWebRequest.cs" />
     <Compile Include="MARIASqlServerDatabase.cs" />
     <Compile Include="MARIASqlServerDatabase_QueryExecution.cs" />
+    <Compile Include="MARIAWebRequestCollection.cs" />
     <Compile Include="MARIAWebRequest_Get.cs" />
     <Compile Include="MARIAWebRequest_Parser.cs" />
     <Compile Include="MARIAWebRequest_Post.cs" />

@@ -26,7 +26,7 @@ namespace MARIA
                         if(CommandType == "mariawebrequest")
                         {
                             string URL = NativeFileNode["url"].InnerText;
-                            MARIAWebRequest NewRequest = new MARIAWebRequest(URL);
+                            //MARIAWebRequest NewRequest = new MARIAWebRequest(URL);
                             Console.WriteLine(URL);
                         }
                     }

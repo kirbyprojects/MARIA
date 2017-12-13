@@ -8,8 +8,21 @@ using System.Net.Mime;
 using System.Net.Http;
 using System.IO;
 using Newtonsoft.Json;
+using System.Threading;
+
 namespace MARIA
 {
+    public enum WebRequestMethod
+    {
+        GET,
+        POST
+    }
+    public enum WebRequestEnctype
+    {
+        APPLICATION_X_WWW_FORM_URLENCODED,
+        MULTIPART_FORM_DATA,
+        TEXT_PLAIN
+    }
     public partial class MARIAWebRequest
     {
         private string URL { get; set; }
@@ -17,12 +30,25 @@ namespace MARIA
         private Dictionary<string, string> RequestCookies { get; set; }
         private Dictionary<string,string> PostParameters { get; set; }
         private Dictionary<string,object> PostObjects { get; set; }
-        public MARIAWebRequest(string URL)
+        private WebRequestMethod Method { get; set; }
+        private HttpClient Client { get; set; }
+        private int RequestDelay { get; set; }
+        public MARIAWebRequest(string URL, WebRequestMethod Method, ref HttpClient Client)
         {
             this.URL = URL;
             this.QueryStringParameters = new Dictionary<string, string>();
             this.PostParameters = new Dictionary<string, string>();
             this.PostObjects = new Dictionary<string, object>();
+            this.Client = Client;
+        }
+        public MARIAWebRequest(string URL, WebRequestMethod Method, ref HttpClient Client, int RequestDelay)
+        {
+            this.URL = URL;
+            this.QueryStringParameters = new Dictionary<string, string>();
+            this.PostParameters = new Dictionary<string, string>();
+            this.PostObjects = new Dictionary<string, object>();
+            this.Client = Client;
+            this.RequestDelay = RequestDelay;
         }
         public string GetQueryString()
         {
@@ -97,6 +123,27 @@ namespace MARIA
             catch(Exception e)
             {
                 SO = new StatusObject(e, "WEBREQUEST_ADDREQUESTCOOKIE");
+            }
+            return SO;
+        }
+        public StatusObject Execute()
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+                Thread.Sleep(this.RequestDelay);
+                if (this.Method == WebRequestMethod.GET)
+                {
+                    Get();
+                }
+                else
+                {
+                    Post();
+                }
+            }
+            catch(Exception e)
+            {
+                SO = new StatusObject();
             }
             return SO;
         }

@@ -11,18 +11,17 @@ namespace MARIA
 {
     public partial class MARIAWebRequest
     {
-        public StatusObject Post(HttpClient Client)
+        public StatusObject Post()
         {
             StatusObject SO = new StatusObject();
             try
             {
-                HttpResponseMessage Response = Client.PostAsync(this.URL, GetFormUrlEncodedContent()).Result;
-                
+                HttpResponseMessage Response = this.Client.PostAsync(this.URL, GetFormUrlEncodedContent()).Result;
                 Console.WriteLine(Response.Content.ReadAsStringAsync().Result);
             }
             catch (Exception e)
             {
-
+                SO = new StatusObject(e, "WEBREQUEST_POST");
             }
             return SO;
         }

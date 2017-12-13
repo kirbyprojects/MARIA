@@ -16,6 +16,7 @@ namespace MARIA
             string UserInput = "";
             MARIAFile ActiveFile = new MARIAFile(args.ElementAtOrDefault(0));
             MARIASqlServerDatabase ActiveDatabase = null;
+            HttpClient ApplicationClient = new HttpClient();
             if (ActiveFile.IsValid && ActiveFile.IsMARIAFile)
             {
                 StartupMode = "file";
@@ -134,8 +135,18 @@ namespace MARIA
                                     }
                                     else
                                     {
-
+                                        
                                     }
+                                }
+                                else if (SecondaryCommand == "parallel")
+                                {
+                                    MARIAWebRequestCollection WebRequestManager = new MARIAWebRequestCollection();
+                                    WebRequestManager.AddWebRequest("claims1", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
+                                    WebRequestManager.AddWebRequest("claims2", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
+                                    WebRequestManager.AddWebRequest("claims3", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
+                                    WebRequestManager.AddWebRequest("claims4", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
+                                    WebRequestManager.AddWebRequest("claims5", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
+                                    WebRequestManager.ExecuteParallel(10000);
                                 }
                                 else
                                 {
