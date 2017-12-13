@@ -18,6 +18,7 @@ namespace MARIA
             {
                 HttpWebRequest TargetSite = (HttpWebRequest)WebRequest.Create(this.URL);
                 HttpWebResponse TargetSiteResponse = (HttpWebResponse)TargetSite.GetResponse();
+                TargetSiteResponse.Close();
             }
             catch (Exception e)
             {

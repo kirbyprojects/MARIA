@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Net;
 namespace MARIA
 {
     public partial class MARIAWebRequestCollection
@@ -56,17 +56,18 @@ namespace MARIA
             StatusObject SO = new StatusObject();
             try
             {
+                ServicePointManager.DefaultConnectionLimit = Iterations;
                 List<int> IterationList = new List<int>();
                 for (int i = 0; i < Iterations; i++)
                 {
                     IterationList.Add(i);
                 }
                 Parallel.ForEach(IterationList, (Iteration) => {
-                    Parallel.ForEach(this.AvailableWebRequests, (AvailableWebRequest) =>
+                    foreach (KeyValuePair<string, MARIAWebRequest> AvailableWebRequest in this.AvailableWebRequests)
                     {
                         Console.WriteLine(AvailableWebRequest.Key);
                         AvailableWebRequest.Value.Execute();
-                    });
+                    }
                 });
             }
             catch(Exception e)

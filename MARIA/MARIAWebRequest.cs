@@ -143,7 +143,7 @@ namespace MARIA
             }
             catch(Exception e)
             {
-                SO = new StatusObject();
+                SO = new StatusObject(e, "WEBREQUEST_EXECUTE");
             }
             return SO;
         }

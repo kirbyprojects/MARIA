@@ -142,11 +142,7 @@ namespace MARIA
                                 {
                                     MARIAWebRequestCollection WebRequestManager = new MARIAWebRequestCollection();
                                     WebRequestManager.AddWebRequest("claims1", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.AddWebRequest("claims2", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.AddWebRequest("claims3", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.AddWebRequest("claims4", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.AddWebRequest("claims5", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.ExecuteParallel(10000);
+                                    WebRequestManager.ExecuteParallel(10);
                                 }
                                 else
                                 {
