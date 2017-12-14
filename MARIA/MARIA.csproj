@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Numerics" />
@@ -76,6 +77,7 @@
     <Compile Include="MARIAFile_TextProcessing.cs" />
     <Compile Include="MARIAMySqlDatabase.cs" />
     <Compile Include="MARIAMySqlDatabase_QueryExecution.cs" />
+    <Compile Include="MARIAProcess.cs" />
     <Compile Include="MARIARuntime.cs" />
     <Compile Include="MARIASqlServerDatabase_CustomAlgorithms.cs" />
     <Compile Include="MARIASqlServerDatabase_QueryOutput.cs" />
