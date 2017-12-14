@@ -17,5 +17,38 @@ namespace MARIA
         {
             this.UserDefinedThread = new Thread(() => UserDefinedThread(ThreadInput));
         }
+        public MARIAThread(Func<StatusObject> UserDefinedThread)
+        {
+            this.UserDefinedThread = new Thread(() => UserDefinedThread());
+            this.UserDefinedThread = new Thread(() => {
+
+            });
+        }
+        public StatusObject Start()
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+                this.UserDefinedThread.Start();
+            }
+            catch(Exception e)
+            {
+                SO = new StatusObject(e, "THREAD_START");
+            }
+            return SO;
+        }
+        public StatusObject Stop()
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+                this.UserDefinedThread.Abort();
+            }
+            catch(Exception e)
+            {
+                SO = new StatusObject(e, "THREAD_STOP");
+            }
+            return SO;
+        }
     }
 }

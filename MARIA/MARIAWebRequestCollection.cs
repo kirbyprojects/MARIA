@@ -30,14 +30,18 @@ namespace MARIA
         /// This function will execute all the web requests in the order they were inserted
         /// </summary>
         /// <returns></returns>
-        public StatusObject ExecuteSequential()
+        public StatusObject ExecuteSequential(int Iterations)
         {
             StatusObject SO = new StatusObject();
             try
             {
-                foreach (KeyValuePair<string, MARIAWebRequest> AvailableWebRequest in this.AvailableWebRequests)
+                for(int i = 0; i < Iterations; i++)
                 {
-                    AvailableWebRequest.Value.Execute();
+                    foreach (KeyValuePair<string, MARIAWebRequest> AvailableWebRequest in this.AvailableWebRequests)
+                    {
+                        Console.WriteLine("{0} {1}", AvailableWebRequest.Key, i);
+                        AvailableWebRequest.Value.Execute();
+                    }
                 }
             }
             catch(Exception e)

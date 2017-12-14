@@ -141,8 +141,8 @@ namespace MARIA
                                 else if (SecondaryCommand == "parallel")
                                 {
                                     MARIAWebRequestCollection WebRequestManager = new MARIAWebRequestCollection();
-                                    WebRequestManager.AddWebRequest("claims1", new MARIAWebRequest("http://192.168.1.161/claims/index.cfm", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.ExecuteParallel(10);
+                                    WebRequestManager.AddWebRequest("claims1", new MARIAWebRequest("http://uat.merimen.com/uat_id/claims/", WebRequestMethod.GET, ref ApplicationClient));
+                                    WebRequestManager.ExecuteSequential(100000000);
                                 }
                                 else
                                 {
