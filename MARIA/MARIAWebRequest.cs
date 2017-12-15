@@ -40,6 +40,7 @@ namespace MARIA
             this.PostParameters = new Dictionary<string, string>();
             this.PostObjects = new Dictionary<string, object>();
             this.Client = Client;
+            this.RequestDelay = 0;
         }
         public MARIAWebRequest(string URL, WebRequestMethod Method, ref HttpClient Client, int RequestDelay)
         {
@@ -142,6 +143,32 @@ namespace MARIA
                 }
             }
             catch(Exception e)
+            {
+                SO = new StatusObject(e, "WEBREQUEST_EXECUTE");
+            }
+            return SO;
+        }
+        public StatusObject Execute(int Iterations)
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+                Thread.Sleep(this.RequestDelay);
+                for(int i = 0; i < Iterations; i++)
+                {
+                    if (this.Method == WebRequestMethod.GET)
+                    {
+                        Console.WriteLine(i);
+                        Get();
+                    }
+                    else
+                    {
+                        Console.WriteLine(i);
+                        Post();
+                    }
+                }
+            }
+            catch (Exception e)
             {
                 SO = new StatusObject(e, "WEBREQUEST_EXECUTE");
             }

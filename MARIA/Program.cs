@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 namespace MARIA
 {
     class Program
@@ -182,6 +183,15 @@ namespace MARIA
                             else if (PrimaryCommand == "extdll")
                             {
                                 
+                            }
+                            else if (PrimaryCommand == "thread")
+                            {
+
+                            }
+                            else if (PrimaryCommand == "process")
+                            {
+                                MARIAProcess TargetProcess = new MARIAProcess("firefox");
+                                TargetProcess.ReadProcessMemory();
                             }
                             else
                             {

@@ -20,9 +20,10 @@ namespace MARIA
         public MARIAThread(Func<StatusObject> UserDefinedThread)
         {
             this.UserDefinedThread = new Thread(() => UserDefinedThread());
-            this.UserDefinedThread = new Thread(() => {
-
-            });
+        }
+        public MARIAThread(Func<int, StatusObject> UserDefinedThread, int ThreadInput)
+        {
+            this.UserDefinedThread = new Thread(() => UserDefinedThread(ThreadInput));
         }
         public StatusObject Start()
         {

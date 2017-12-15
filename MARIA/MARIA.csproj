@@ -78,6 +78,7 @@
     <Compile Include="MARIAMySqlDatabase.cs" />
     <Compile Include="MARIAMySqlDatabase_QueryExecution.cs" />
     <Compile Include="MARIAProcess.cs" />
+    <Compile Include="MARIAProcessManager.cs" />
     <Compile Include="MARIARuntime.cs" />
     <Compile Include="MARIASqlServerDatabase_CustomAlgorithms.cs" />
     <Compile Include="MARIASqlServerDatabase_QueryOutput.cs" />
