@@ -12,21 +12,18 @@ namespace MARIA
         {
 
         }
-        public StatusObject GetProcesses()
+        public StatusObject GetProcess(int ProcessID)
         {
             StatusObject SO = new StatusObject();
             try
             {
-                List<Process> ActiveProcessList = Process.GetProcesses().ToList();
-                foreach (Process ActiveProcess in ActiveProcessList)
-                {
-                    Console.WriteLine("{0} {1}", ActiveProcess.ProcessName, ActiveProcess.StartInfo);
-                    
-                }
+                Process TargetProcess = Process.GetProcessById(ProcessID);
+                
+                Console.WriteLine(TargetProcess.ProcessName);
             }
             catch(Exception e)
             {
-
+                SO = new StatusObject();
             }
             return SO;
         }

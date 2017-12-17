@@ -190,8 +190,11 @@ namespace MARIA
                             }
                             else if (PrimaryCommand == "process")
                             {
-                                MARIAProcess TargetProcess = new MARIAProcess("firefox");
-                                TargetProcess.ReadProcessMemory();
+                                MARIAProcess newprocess = new MARIAProcess("chrome");
+                                newprocess.Start();
+                                Thread.Sleep(3000);
+                                newprocess.Stop();
+                                Console.WriteLine(newprocess.ProcessID);
                             }
                             else
                             {

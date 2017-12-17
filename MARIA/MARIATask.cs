@@ -26,14 +26,14 @@ namespace MARIA
         {
             this.UserDefinedTask = new Task(() => 
             {
-                this.TaskStatus = UserDefinedTask();
+                UserDefinedTask();
             });
         }
         public MARIATask(Func<string, int, StatusObject> UserDefinedTask, string TaskParameter1, int TaskParameter2)
         {
             this.UserDefinedTask = new Task(() =>
             {
-                this.TaskStatus = UserDefinedTask(TaskParameter1, TaskParameter2);
+                UserDefinedTask(TaskParameter1, TaskParameter2);
             });
         }
         public StatusObject Start()
