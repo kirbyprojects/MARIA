@@ -13,13 +13,16 @@ namespace MARIA
         public string ProcessName { get; private set; }
         public Process ProcessInstance { get; private set; }
         public int ProcessID { get; private set; }
-        public Dictionary<int,dynamic> MemoryValues { get; set; }
-        public IntPtr StartAddress { get; private set; }
-        public IntPtr EndAddress { get; set; }
         public MARIAProcess(string ProcessName)
         {
             this.ProcessName = ProcessName;
             this.MemoryValues = new Dictionary<int, dynamic>();
+        }
+        public MARIAProcess(int ProcessID)
+        {
+            this.ProcessID = ProcessID;
+            this.ProcessInstance = Process.GetProcessById(ProcessID);
+            this.ProcessName = this.ProcessInstance.ProcessName;
         }
         public StatusObject Start()
         {

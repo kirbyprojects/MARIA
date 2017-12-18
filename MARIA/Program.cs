@@ -192,9 +192,12 @@ namespace MARIA
                             {
                                 MARIAProcess newprocess = new MARIAProcess("chrome");
                                 newprocess.Start();
-                                Thread.Sleep(3000);
-                                newprocess.Stop();
-                                Console.WriteLine(newprocess.ProcessID);
+                                newprocess.GetMemoryAddresses();
+                            }
+                            else if (PrimaryCommand == "process2")
+                            {
+                                MARIAProcessManager ProcessManager = new MARIAProcessManager();
+                                ProcessManager.GetAllProcesses("chrome");
                             }
                             else
                             {
