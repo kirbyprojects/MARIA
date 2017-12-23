@@ -69,7 +69,7 @@ namespace MARIA
                 Parallel.ForEach(IterationList, (Iteration) => {
                     foreach (KeyValuePair<string, MARIAWebRequest> AvailableWebRequest in this.AvailableWebRequests)
                     {
-                        Console.WriteLine(AvailableWebRequest.Key);
+                        Console.WriteLine("{0} {1}", AvailableWebRequest.Key, Iteration);
                         AvailableWebRequest.Value.Execute();
                     }
                 });

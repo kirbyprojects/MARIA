@@ -43,5 +43,18 @@ namespace MARIA
             }
             return SO;
         }
+        public async Task<StatusObject> GetAsync(HttpClient Client)
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+                HttpResponseMessage TargetSiteResponse = await Client.GetAsync(this.URL);
+            }
+            catch(Exception e)
+            {
+                SO = new StatusObject(e, "WEBREQUEST_GETASYNC");
+            }
+            return SO;
+        }
     }
 }

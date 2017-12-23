@@ -11,6 +11,7 @@ namespace MARIA
         public Dictionary<int, dynamic> MemoryValues { get; set; }
         public IntPtr StartAddress { get; private set; }
         public IntPtr EndAddress { get; set; }
+        public long AddressLength { get; set; }
         public StatusObject GetMemoryAddresses()
         {
             StatusObject SO = new StatusObject();
@@ -23,6 +24,37 @@ namespace MARIA
             catch (Exception e)
             {
                 SO = new StatusObject(e, "PROCESS_GETMEMORYADDRESSES");
+            }
+            return SO;
+        }
+        public StatusObject ReadMemoryAddressValue()
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+
+            }
+            catch(Exception e)
+            {
+
+            }
+            return SO;
+        }
+        public StatusObject ReadMemoryAddressValues()
+        {
+            StatusObject SO = new StatusObject();
+            return SO;
+        }
+        public StatusObject SearchMemoryAddressForValue()
+        {
+            StatusObject SO = new StatusObject();
+            try
+            {
+
+            }
+            catch(Exception e)
+            {
+                
             }
             return SO;
         }
