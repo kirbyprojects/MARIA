@@ -83,6 +83,7 @@
     <Compile Include="MARIAProcessManager.cs" />
     <Compile Include="MARIAProcess_MemoryManagement.cs" />
     <Compile Include="MARIAProcess_SSMS.cs" />
+    <Compile Include="MARIARandomizer.cs" />
     <Compile Include="MARIARuntime.cs" />
     <Compile Include="MARIASqlServerDatabase_CustomAlgorithms.cs" />
     <Compile Include="MARIASqlServerDatabase_QueryOutput.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="MARIAWebRequest_Get.cs" />
     <Compile Include="MARIAWebRequest_Parser.cs" />
     <Compile Include="MARIAWebRequest_Post.cs" />
+    <Compile Include="MARIAWebRequest_ResponseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusObject.cs" />

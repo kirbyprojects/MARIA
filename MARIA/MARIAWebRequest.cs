@@ -25,14 +25,15 @@ namespace MARIA
     }
     public partial class MARIAWebRequest
     {
-        private string URL { get; set; }
-        private Dictionary<string,string> QueryStringParameters { get; set; }
-        private Dictionary<string, string> RequestCookies { get; set; }
-        private Dictionary<string,string> PostParameters { get; set; }
-        private Dictionary<string,object> PostObjects { get; set; }
-        private WebRequestMethod Method { get; set; }
-        private HttpClient Client { get; set; }
-        private int RequestDelay { get; set; }
+        public string URL { get; private set; }
+        public Dictionary<string,string> QueryStringParameters { get; private set; }
+        public Dictionary<string, string> RequestCookies { get; private set; }
+        public Dictionary<string,string> PostParameters { get; private set; }
+        public Dictionary<string,object> PostObjects { get; private set; }
+        public WebRequestMethod Method { get; private set; }
+        public HttpClient Client { get; private set; }
+        public int RequestDelay { get; private set; }
+        public int Iterations { get; private set; }
         public MARIAWebRequest(string URL, WebRequestMethod Method, ref HttpClient Client)
         {
             this.URL = URL;
@@ -42,7 +43,7 @@ namespace MARIA
             this.Client = Client;
             this.RequestDelay = 0;
         }
-        public MARIAWebRequest(string URL, WebRequestMethod Method, ref HttpClient Client, int RequestDelay)
+        public MARIAWebRequest(string URL, WebRequestMethod Method, ref HttpClient Client, int RequestDelay, int Iterations)
         {
             this.URL = URL;
             this.QueryStringParameters = new Dictionary<string, string>();
@@ -50,6 +51,7 @@ namespace MARIA
             this.PostObjects = new Dictionary<string, object>();
             this.Client = Client;
             this.RequestDelay = RequestDelay;
+            this.Iterations = Iterations;
         }
         public string GetQueryString()
         {
@@ -135,11 +137,11 @@ namespace MARIA
                 Thread.Sleep(this.RequestDelay);
                 if (this.Method == WebRequestMethod.GET)
                 {
-                    Get();
+                    ConventionalGet();
                 }
                 else
                 {
-                    Post();
+                    ClientPost();
                 }
             }
             catch(Exception e)
@@ -159,12 +161,12 @@ namespace MARIA
                     if (this.Method == WebRequestMethod.GET)
                     {
                         Console.WriteLine(i);
-                        Get();
+                        ConventionalGet();
                     }
                     else
                     {
                         Console.WriteLine(i);
-                        Post();
+                        ClientPost();
                     }
                 }
             }

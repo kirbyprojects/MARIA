@@ -141,10 +141,16 @@ namespace MARIA
                                 }
                                 else if (SecondaryCommand == "sequential")
                                 {
-                                    MARIAWebRequestCollection WebRequestManager = new MARIAWebRequestCollection();
-                                    WebRequestManager.AddWebRequest("claims1", new MARIAWebRequest("http://uat.merimen.com/uat_id/claims/", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.AddWebRequest("claims2", new MARIAWebRequest("http://uat.merimen.com/uat_id/claims/", WebRequestMethod.GET, ref ApplicationClient));
-                                    WebRequestManager.ExecuteSequential(1000000000);
+                                    
+                                }
+                                else if (SecondaryCommand == "get")
+                                {
+                                    MARIAWebRequest NewRequest = new MARIAWebRequest("http://uat.merimen.com/uat_id/claims/", WebRequestMethod.GET, ref ApplicationClient);
+                                    NewRequest.ConventionalGet(NewRequest.ReadResponse);
+                                }
+                                else if (SecondaryCommand == "post")
+                                {
+
                                 }
                                 else
                                 {

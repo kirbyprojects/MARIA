@@ -11,13 +11,17 @@ namespace MARIA
 {
     public partial class MARIAWebRequest
     {
-        public StatusObject Get()
+        public StatusObject ConventionalGet(params Func<HttpWebResponse, StatusObject>[] ResponseHandlers)
         {
             StatusObject SO = new StatusObject();
             try
             {
                 HttpWebRequest TargetSite = (HttpWebRequest)WebRequest.Create(this.URL);
                 HttpWebResponse TargetSiteResponse = (HttpWebResponse)TargetSite.GetResponse();
+                foreach(Func<HttpWebResponse,StatusObject> ResponseHandler in ResponseHandlers)
+                {
+                    ResponseHandler(TargetSiteResponse);
+                }
                 TargetSiteResponse.Close();
             }
             catch (Exception e)
@@ -26,7 +30,7 @@ namespace MARIA
             }
             return SO;
         }
-        public StatusObject Get(HttpClient Client)
+        public StatusObject ClientGet(HttpClient Client)
         {
             StatusObject SO = new StatusObject();
             try
@@ -43,7 +47,7 @@ namespace MARIA
             }
             return SO;
         }
-        public async Task<StatusObject> GetAsync(HttpClient Client)
+        public async Task<StatusObject> AsyncGet(HttpClient Client)
         {
             StatusObject SO = new StatusObject();
             try
